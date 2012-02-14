@@ -8,27 +8,27 @@ describe DonorsChoose do
     DonorsChoose.api_key.should eql(key)
   end
 
-
   context "requesting data" do
     let(:test_title) { "A test project" }
 
-    def mock_request(args)
-      request = double(:fetch => %Q/{"proposals":  [{"title": "#{test_title}"}]}/)
-      DonorsChoose::Request.should_receive(:new).with(args).and_return(request)
-    end
-
     it "is able to find projects near me" do
-      mock_request(:centerLat => "40.4405556", :centerLong => "-79.9961111")
+      projects = [double]
+      DonorsChoose::Request.should_receive(:get).
+        with(:centerLat => "40.4405556", :centerLong => "-79.9961111").
+        and_return(projects)
 
-      projects = DonorsChoose.projects_near_me("40.4405556", "-79.9961111")
-      projects.first.title.should eql(test_title)
+      results = DonorsChoose.projects_near_me("40.4405556", "-79.9961111")
+      results.should eq(projects)
     end
 
     it "is able to find projects by zip code" do
-      mock_request(:keyword => "15232")
+      projects = [double]
+      DonorsChoose::Request.should_receive(:get).
+        with(:keyword => "15232").
+        and_return(projects)
 
-      projects = DonorsChoose.projects_by_zip("15232")
-      projects.first.title.should eql("A test project")
+      results = DonorsChoose.projects_by_zip("15232")
+      results.should eq(projects)
     end
   end
 end

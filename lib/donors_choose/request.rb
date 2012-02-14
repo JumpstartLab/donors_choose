@@ -1,10 +1,21 @@
 require 'cgi'
 require 'uri'
 require 'net/http'
+require 'json'
+require 'ostruct'
 
 class DonorsChoose::Request
+   def self.get(params)
+    new(params).get
+  end
+
   def initialize(params)
     @params = params
+  end
+
+  def get
+    data = JSON.parse(fetch)["proposals"]
+    data.collect {|datum| OpenStruct.new(datum)}
   end
 
   def fetch
