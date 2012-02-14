@@ -8,12 +8,13 @@ describe DonorsChoose do
     DonorsChoose.api_key.should eql(key)
   end
 
-  pending do
   it "is able to find projects near me" do
-    lat = 40.4405556
-    long = -79.9961111
-    projects = DonorsChoose.projects_near_me(lat, long)
-    projects.title.should eql("A test project")
-  end
+    request = double
+    request.should_receive(:fetch).and_return('{"proposals":  [{"title": "A test project"}]}')
+
+    DonorsChoose::Request.should_receive(:new).and_return(request)
+
+    projects = DonorsChoose.projects_near_me("40.4405556", "-79.9961111")
+    projects.first.title.should eql("A test project")
   end
 end
