@@ -1,4 +1,5 @@
-require 'lib/donors_choose'
+$:.unshift("lib")
+require 'donors_choose'
 
 describe DonorsChoose do
   it "is able to have an API key set" do

@@ -1,4 +1,5 @@
-require 'lib/donors_choose/request'
+$:.unshift("lib")
+require 'donors_choose/request'
 
 describe DonorsChoose::Request do
   it "is able to request data from the API" do
