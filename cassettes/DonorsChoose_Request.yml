@@ -1,0 +1,36 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.donorschoose.org:80/common/json_feed.html?APIKey=DONORSCHOOSE&community=1007:3&state=NC
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      content-type:
+      - text/plain;charset=UTF-8
+      content-language:
+      - en-US
+      cache-control:
+      - private, max-age=600
+      expires:
+      - Tue, 14 Feb 2012 20:01:14 GMT
+      date:
+      - Tue, 14 Feb 2012 19:51:14 GMT
+      content-length:
+      - '796'
+      connection:
+      - keep-alive
+      x-n:
+      - S
+    body: ! "\r\n \r\n\r\n\r\n\r\n\r\n\r\n\r\n \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\r\n\r\n\t
+      \ \t\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n{\"searchTerms\":\"+cityid:1007 AND +statecode:NC
+      AND +historical:fall +_val_:&#034;add(product(10.0,staticNewbie),add(product(100.0,recal(add(ms(NOW,explorationth),3.16911),3.16e-11,1,1)),add(product(10000.0,add(product(1.25,sun(5.0,
+      static)),product(0.75,stationor))),add(product(100000.0,stationeri),add(product(1000000.0,sun(10.0,staticNeedBinary)),0)))))&#034;
+      &gt; Many Farms, Arizona\",\"searchURL\":\"http://www.donorschoose.org/donors/search.html?community=1007%3a3&amp;state=NC&amp;utm_source=api&amp;utm_medium=feed&amp;utm_content=searchlink&amp;utm_campaign=DONORSCHOOSE\",\"totalProposals\":\"0\",\"index\":\"0\",\"max\":\"10\",\"proposals\":[]}\r\n"
+    http_version: '1.1'
