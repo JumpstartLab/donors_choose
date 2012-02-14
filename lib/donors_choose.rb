@@ -13,4 +13,11 @@ module DonorsChoose
 
     data.collect {|datum| OpenStruct.new(datum)}
   end
+
+  def projects_by_zip(zipcode)
+    request = Request.new(:keyword => zipcode)
+    data = JSON.parse(request.fetch)["proposals"]
+
+    data.collect {|datum| OpenStruct.new(datum)}
+  end
 end
