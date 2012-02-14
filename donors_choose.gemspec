@@ -4,8 +4,8 @@ require File.expand_path('../lib/donors_choose/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Steve Klabnik"]
   gem.email         = ["steve@steveklabnik.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{A gem for the DonorsChoose.org API.}
+  gem.summary       = %q{A gem for the DonorsChoose.org API.}
   gem.homepage      = ""
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
