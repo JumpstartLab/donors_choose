@@ -3,7 +3,11 @@ require 'donors_choose/request'
 
 module DonorsChoose
   extend self
-  attr_accessor :api_key
+
+  attr_writer :api_key
+  def api_key
+    @api_key || "DONORSCHOOSE"
+  end
 
   def projects_near_me(latitude, longitude)
     Request.get(:centerLat => latitude, :centerLong => longitude)
