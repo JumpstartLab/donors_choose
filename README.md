@@ -1,6 +1,8 @@
 # DonorsChoose
 
-TODO: Write a gem description
+DonorsChoose.org is an online charity that makes it easy for anyone to help students in need.
+
+This is a gem that wraps [their API](http://developer.donorschoose.org/home).
 
 ## Installation
 
@@ -18,7 +20,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The first thing you should do is [request an API
+key](http://developer.donorschoose.org/help-contact). They provide a test key,
+"DONORSCHOOSE", that will occasionally be turned off. So be nice and get your
+own. :)
+
+We're currently developing support for the full API, but right now, there are
+just two methods.
+
+    DonorsChoose.api_key = "DONORSCHOOSE"
+
+    projects = DonorsChoose.projects_near_me("40.4405556", "-79.9961111")
+    projects = DonorsChoose.projects_by_zip("15232")
+
+Projects will be an array of objects that contain all of the data returned by
+the request. You can learn about these objects through introspection:
+
+    > (projects.first.methods - Object.new.methods)
+    => [:id, ...
+ 
+For example. These objects are dynamically created based on the response, so
+minor API updates may change the attributes.
 
 ## Contributing
 
