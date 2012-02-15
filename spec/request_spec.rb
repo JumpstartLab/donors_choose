@@ -20,6 +20,6 @@ describe DonorsChoose::Request do
 
     request = DonorsChoose::Request.new({:state => "NC",
                                          :community => "1007:3"})
-    request.fetch.should_not be_nil
+    request.process.should_not be_nil
   end
 end
