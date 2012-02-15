@@ -24,7 +24,7 @@ describe DonorsChoose do
     it "is able to find projects by zip code" do
       projects = [double]
       DonorsChoose::Request.should_receive(:get).
-        with(:keyword => "15232").
+        with(:zip => "15232").
         and_return(projects)
 
       results = DonorsChoose.projects_by_zip("15232")

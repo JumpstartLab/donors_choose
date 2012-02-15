@@ -14,6 +14,6 @@ module DonorsChoose
   end
 
   def projects_by_zip(zipcode)
-    Request.get(:keyword => zipcode)
+    Request.get(:zip => zipcode)
   end
 end
