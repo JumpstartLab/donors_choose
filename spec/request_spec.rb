@@ -3,9 +3,10 @@ require 'donors_choose/request'
 
 require 'vcr'
 require 'webmock'
+YAML_SERIALIZATION_VERSION = RUBY_VERSION =~ /1\.8/ ? '1.8' : 'not_1.8'
 VCR.config do |c|
+  c.cassette_library_dir = File.join(File.dirname(__FILE__), '..', 'cassettes', YAML_SERIALIZATION_VERSION)
   c.stub_with :webmock
-  c.cassette_library_dir = 'cassettes'
 end
 
 RSpec.configure do |config|
