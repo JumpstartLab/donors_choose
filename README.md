@@ -30,13 +30,13 @@ just two methods.
 
     DonorsChoose.api_key = "DONORSCHOOSE"
 
-    projects = DonorsChoose.projects_near_me("40.4405556", "-79.9961111")
-    projects = DonorsChoose.projects_by_zip("15232")
+    projects = DonorsChoose::Project.near_me("40.4405556", "-79.9961111")
+    projects = DonorsChoose::Project.by_zip("15232")
 
 Projects will be an array of objects that contain all of the data returned by
 the request. You can learn about these objects through introspection:
 
-    > (projects.first.methods - Object.new.methods)
+    > projects.first.methods(false)
     => [:id, ...
  
 For example. These objects are dynamically created based on the response, so
