@@ -1,4 +1,3 @@
-$:.unshift("lib")
 require 'donors_choose'
 
 describe DonorsChoose::Project do
@@ -10,7 +9,7 @@ describe DonorsChoose::Project do
       with(:centerLat => "40.4405556", :centerLong => "-79.9961111").
       and_return(projects)
 
-    results = DonorsChoose::Project.near_me("40.4405556", "-79.9961111")
+    results = described_class.near_me("40.4405556", "-79.9961111")
     results.should eq(projects)
   end
 
@@ -20,7 +19,7 @@ describe DonorsChoose::Project do
       with(:zip => "15232").
       and_return(projects)
 
-    results = DonorsChoose::Project.by_zip("15232")
+    results = described_class.by_zip("15232")
     results.should eq(projects)
   end
 end
