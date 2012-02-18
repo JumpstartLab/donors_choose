@@ -4,6 +4,8 @@ require 'net/http'
 require 'json'
 require 'ostruct'
 
+require 'donors_choose/utils/static_struct'
+
 # This class provides a wrapper around all of the external interaction
 # we'll be doing. It's kinda important, given we're wrapping an API. ;)
 class DonorsChoose::Request
@@ -26,7 +28,7 @@ class DonorsChoose::Request
   # list of objects with the data.
   def process
     data = JSON.parse(get)["proposals"]
-    data.collect {|datum| OpenStruct.new(datum)}
+    data.collect {|datum| DonorsChoose::Utils::StaticStruct.new(datum)}
   end
 
   # This method wraps Net::HTTP, basically. We build up our own parameter
