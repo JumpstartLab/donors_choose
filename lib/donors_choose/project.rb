@@ -11,4 +11,9 @@ class DonorsChoose::Project
   def self.by_zip(zipcode)
     DonorsChoose::Request.get(:zip => zipcode)
   end
+
+  # This method allows you to look up a project by project id.
+  def self.by_id(id)
+    DonorsChoose::Request.get(:id => id).first
+  end
 end

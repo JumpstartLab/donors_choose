@@ -22,4 +22,14 @@ describe DonorsChoose::Project do
     results = described_class.by_zip("15232")
     results.should eq(projects)
   end
+
+  it "is able to find a project by id" do
+    project = double
+    DonorsChoose::Request.should_receive(:get).
+      with(:id => "812882").
+      and_return([project])
+
+    results = described_class.by_id("812882")
+    results.should eq(project)
+  end
 end
